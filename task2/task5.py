@@ -11,6 +11,8 @@ class Solution:
         else:
             print("The wrong input")
         return num
+
+        
 num = int(input())
 res = Solution()
 res.findComplement(num)
