@@ -36,14 +36,14 @@ def f():
             with open('OUT.txt', "a") as outfile:
                 outfile.write(' '.join((
                              ('SNAPSHOT', a, ':', dat, cpout, '%',
-                             vmout, diskout, ioout, netout + '\n'))))
+                               vmout, diskout, ioout, netout + '\n'))))
                 outfile.write("!!!!!" + '\n')
                 outfile.close()
         elif output == "json":
             with open('OUT.json', 'a') as outfile:
                 json.dump((
-                          ('SNAPSHOT', a, dat, cpout, '%', vmout, diskout,
-                          ioout, netout), outfile))
+                         ('SNAPSHOT', a, dat, cpout, '%', vmout, diskout,
+                           ioout, netout), outfile))
                 outfile.close()
         else:
             print("The wrong output format")
