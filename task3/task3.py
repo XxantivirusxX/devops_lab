@@ -1,7 +1,7 @@
-import psutil, threading, time, argparse, configparser, os, json
+import psutil, time, configparser, os, json
+
+
 def crudConfig(path):
-    if not os.path.exists(path):
-        createConfig(path)
     config = configparser.ConfigParser()
     config.read(path)
     global output, interval
@@ -9,7 +9,7 @@ def crudConfig(path):
     interval = config.get("config", "interval")         
 if __name__ == "__main__":
     path = "config.ini"
-    crudConfig(path)   
+    crudConfig(path)
 
 
 print(output)
@@ -26,12 +26,14 @@ def f():
         dat = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         if output == "txt":
             with open('OUT.txt', "a") as outfile:
-                outfile.write(' '.join(('SNAPSHOT', a, ':', dat , cpout, '%', vmout, diskout, ioout, netout+'\n')))
+                outfile.write(' '.join(('SNAPSHOT', a, ':', dat , cpout, '%', \
+                    vmout, diskout, ioout, netout+'\n')))
                 outfile.write("!!!!!"+'\n')
                 outfile.close()
         elif output == "json":
             with open('OUT.json', 'a') as outfile:
-                json.dump(('SNAPSHOT', a , dat , cpout, '%', vmout, diskout, ioout, netout), outfile)
+                json.dump(('SNAPSHOT', a , dat , cpout, '%', vmout, diskout, \
+                    ioout, netout), outfile)
                 outfile.close()
         else:
             print("The wrong output format")
