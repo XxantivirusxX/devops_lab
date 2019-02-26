@@ -3,13 +3,16 @@ import time
 import configparser
 import json
 
+
 def crudConfig(path):
     config = configparser.ConfigParser()
     config.read(path)
     global output, interval
     output = config.get("config", "output")
-    interval = config.get("config", "interval") 
+    interval = config.get("config", "interval")
 path = "config.ini"
+
+
 crudConfig(path)
 
 
@@ -29,17 +32,18 @@ def f():
         dat = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         if output == "txt":
             with open('OUT.txt', "a") as outfile:
-                outfile.write(' '.join(('SNAPSHOT', a, ':', dat, cpout, '%',
+                outfile.write(' '.join(('SNAPSHOT', a, ':', dat, cpout, '%', 
                     vmout, diskout, ioout, netout + '\n')))
                 outfile.write("!!!!!" + '\n')
                 outfile.close()
         elif output == "json":
             with open('OUT.json', 'a') as outfile:
-                json.dump(('SNAPSHOT', a, dat, cpout, '%', vmout, diskout,
+                json.dump(('SNAPSHOT', a, dat, cpout, '%', vmout, diskout, 
                     ioout, netout), outfile)
                 outfile.close()
         else:
             print("The wrong output format")
         time.sleep(int(interval))
-f()
 
+
+f()
