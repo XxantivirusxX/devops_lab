@@ -1,5 +1,4 @@
 import requests
-import json
 import getpass
 
 
@@ -17,4 +16,3 @@ print("Created: %s " % gre[ind]['head']['repo']['created_at'])
 print("Updated: %s " % gre[ind]['head']['repo']['updated_at'])
 print("Repo name: %s " % gre[ind]['head']['repo']['name'])
 print("Owner's url: %s " % gre[ind]['base']['repo']['owner']['url'])
-
