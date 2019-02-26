@@ -10,6 +10,8 @@ def crudConfig(path):
     global output, interval
     output = config.get("config", "output")
     interval = config.get("config", "interval")
+
+    
 path = "config.ini"
 
 
@@ -35,7 +37,6 @@ def f():
                 (outfile.write(' '.join(
                     ('SNAPSHOT', a, ':', dat, cpout, '%', 
                     vmout, diskout, ioout, netout + '\n'))))
-                
                 outfile.write("!!!!!" + '\n')
                 outfile.close()
         elif output == "json":
