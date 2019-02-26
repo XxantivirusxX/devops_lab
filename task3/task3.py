@@ -32,14 +32,17 @@ def f():
         dat = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
         if output == "txt":
             with open('OUT.txt', "a") as outfile:
-                outfile.write(' '.join(('SNAPSHOT', a, ':', dat, cpout, '%', 
-                    vmout, diskout, ioout, netout + '\n')))
+                (outfile.write(' '.join(
+                    ('SNAPSHOT', a, ':', dat, cpout, '%', 
+                    vmout, diskout, ioout, netout + '\n'))))
+                
                 outfile.write("!!!!!" + '\n')
                 outfile.close()
         elif output == "json":
             with open('OUT.json', 'a') as outfile:
-                json.dump(('SNAPSHOT', a, dat, cpout, '%', vmout, diskout, 
-                    ioout, netout), outfile)
+                (json.dump(
+                    ('SNAPSHOT', a, dat, cpout, '%', vmout, diskout,
+                    ioout, netout), outfile))
                 outfile.close()
         else:
             print("The wrong output format")
