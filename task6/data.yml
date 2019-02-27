@@ -1,0 +1,14 @@
+#servername:
+#documentroot:
+#serveradmin:
+#directorypath:
+apache_vhosts:
+ - servername: "custom_servername1"
+   documentroot: "custom_documentroot1"
+   serveradmin: "custom_serveradmin1"
+   directorypath: "custom_directorypath1"
+ - servername: "custom_ser"
+   documentroot: "custom_doc"
+   serveradmin: "custom_adm"
+   directorypath: "custom_path"
+
