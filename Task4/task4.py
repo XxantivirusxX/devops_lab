@@ -7,10 +7,10 @@ parser.add_argument('username')
 parser.add_argument('url', help="URL")
 parser.add_argument('--title', '-t', action="store_true", help="Show title")
 parser.add_argument('--state', '-s', action="store_true", help="State of PR")
-parser.add_argument('--created_at', '-c', action="store_true",
-                     help="Creation time")
-parser.add_argument('--updated_at', '-u', action="store_true",
-                     help="Updated time")
+parser.add_argument \
+('--created_at', '-c', action="store_true", help="Creation time")
+parser.add_argument \
+('--updated_at', '-u', action="store_true", help="Updated time")
 parser.add_argument('--ownerurl', '-o', action="store_true", help="Owner URL")
 parser.add_argument('--repo', '-r', action="store_true", help="Repo name")
 args = parser.parse_args()
@@ -30,7 +30,8 @@ def repo_info(uname, pwd):
     if args.updated_at:
         print("Updation time: %s " % str(gre['updated_at']))
     if args.ownerurl:
-        print("Owner URL: %s " % str(gre['base']['repo']['owner']['html_url'])
+        print \
+        ("Owner URL: %s " % str(gre['base']['repo']['owner']['html_url']))
     if args.repo:
         print("Repo name: %s " % gre['head']['repo']['name'])
 
