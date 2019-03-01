@@ -1,5 +1,4 @@
 import requests
-import json
 import getpass
 import argparse
 
@@ -32,7 +31,7 @@ def repo_info(uname, pwd):
         print("Owner URL: %s " % str(gre['base']['repo']['owner']['html_url']))
     if args.repo:
         print("Repo name: %s " % gre['head']['repo']['name'])
-    
+
 
 if __name__ == '__main__':
     repo_info(username, passwd)
